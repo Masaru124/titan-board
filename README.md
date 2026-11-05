@@ -109,36 +109,6 @@ Yes, you can run it there by uploading the skill. This works on Free, Pro, Max, 
 
 Note: custom skills are per-account, and skills don't sync across surfaces — uploading to claude.ai doesn't make it available in Claude Code, the API, or Freebuff (and vice versa), so upload it separately wherever you want it.
 
-### Option 2 — Install into your Freebuff/Codebuff account
-
-If you use Freebuff, add it as an account skill (available in every chat on every device):
-
-1. Easiest path: ask the agent in chat — *"save my titan-board folder as an account skill named titan-board"* — it reads the files and saves them with the description from the YAML frontmatter.
-2. Manually, in the client: **Settings → Skills → Add skill**, then paste:
-   - **Name:** `titan-board`
-   - **Description:** the `description:` line from `SKILL.md` (this is the auto-trigger)
-   - **Instructions:** everything below the `---` frontmatter block in `SKILL.md`
-   - **Files:** the contents of `council-dossier.md` and `council-playbook.md`
-
-### Option 3 — Use it manually in any LLM (no installation)
-
-Works in Claude, GPT, Gemini, or anything else:
-
-1. Copy everything **after** the `---` frontmatter block in `SKILL.md` (from "# Titan Board of Directors" onward) as a system prompt — or paste it as your first message.
-2. Append your situation in this format:
-
-   ```
-   Here is my business situation:
-   - The Idea: [your business idea / product concept]
-   - The Target Customer: [who you are selling to]
-   - Stage: [idea / building / launched / scaling]
-   - My Biggest Bottleneck / Worry right now: [first users, pricing, building, quitting my job...]
-   - Honest Numbers: [price, margin, churn, runway, traction — type the ugly truth]
-   ```
-
-3. Ask for a mode explicitly if you want one: "run a Full Deliberation", "Quick Strike this", "Munger, run a Premortem", "Deep Dive with Bezos", or "run an Idea Forge".
-4. If the client supports file uploads, also paste `council-dossier.md` and `council-playbook.md` — with them the council uses each titan's real frameworks and voice; without them it still follows the protocol but with lighter personas.
-
 ---
 
 ## How to use it
@@ -179,4 +149,11 @@ Works in Claude, GPT, Gemini, or anything else:
 
 ## Version
 
-v1.1 — 16 members + Chair. Saved to the account skill library under the name `titan-board` and mirrored here in full.
+v1.2 — 16 members + Chair. Changes since v1.1:
+
+- **Evidence pass** — web-capable agents now verify market size, competitor pricing, channel economics and base rates before Round 1, so the council argues from facts instead of persona priors (citations in the verdict).
+- **Board minutes + log** — every Full Deliberation ends with a compact minutes block, appended to `titan-board-log.md` when a writable workspace exists, so Board Reviews can actually re-read past verdicts across sessions.
+- **Founder steel-man rule** — at least one member must now argue against the founder's stated plan, not just the abstract idea (counters the documented agreeableness of simulated panels).
+- **Length discipline** — blind reviews ≤80 words per member, dialectic exchanges ≤60 words, so depth beats draft-length.
+
+Saved to the account skill library under the name `titan-board` and mirrored here in full.
